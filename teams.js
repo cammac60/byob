@@ -1,219 +1,467 @@
 const teams = [
     {
-      "id": 1,
-      "name": "New Jersey Devils",
-      "venue": "Prudential Center",
-      "abbreviation": "NJD",
-      "roster": [1, 2]
+      name: "New Jersey Devils",
+      venue: "Prudential Center",
+      abbreviation: "NJD",
+      roster: [{
+        name: "Jack Hughes",
+        country: "USA",
+        points: 17
+      },
+      {
+        name: "Nico Hischier",
+        country: "SWI",
+        points: 29
+      }]
     },
     {
-      "id": 2,
-      "name": "New York Islanders",
-      "venue": "Barclays Center",
-      "abbreviation": "NYI",
-      "roster": [3, 4]
+      name: "New York Islanders",
+      venue: "Barclays Center",
+      abbreviation: "NYI",
+      roster: [{
+        name: "Mathew Barzal",
+        country: "CAN",
+        points: 42
+      },
+      {
+        name: "Anders Lee",
+        country: "USA",
+        points: 29
+      }]
     },
     {
-      "id": 3,
-      "name": "New York Rangers",
-      "venue": "Madison Square Garden",
-      "abbreviation": "NYR",
-      "roster": [5, 6]
+      name: "New York Rangers",
+      venue: "Madison Square Garden",
+      abbreviation: "NYR",
+      roster: [{
+        name: "Mika Zibanejad",
+        country: "SWE",
+        points: 39
+      },
+      {
+        name: "Kaapo Kakko",
+        country: "FIN",
+        points: 16
+      }]
     },
     {
-      "id": 4,
-      "name": "Philadelphia Flyers",
-      "venue": "Wells Fargo Center",
-      "abbreviation": "PHI",
-      "roster": [7, 8]
+      name: "Philadelphia Flyers",
+      venue: "Wells Fargo Center",
+      abbreviation: "PHI",
+      roster: [{
+        name: "Claude Giroux",
+        country: "CAN",
+        points: 35
+      },
+      {
+        name: "Jakub Voracek",
+        country: "CZE",
+        points: 38
+      }]
     },
     {
-      "id": 5,
-      "name": "Pittsburgh Penguins",
-      "venue": "PPG Paints Arena",
-      "abbreviation": "PIT",
-      "roster": [9, 10]
+      name: "Pittsburgh Penguins",
+      venue: "PPG Paints Arena",
+      abbreviation: "PIT",
+      roster: [{
+        name: "Sidney Crosby",
+        country: "CAN",
+        points: 25
+      },
+      {
+        name: "Evgeni Malkin",
+        country: "RUS",
+        points: 50
+      }]
     },
     {
-      "id": 6,
-      "name": "Boston Bruins",
-      "venue": "TD Garden",
-      "abbreviation": "BOS",
-      "roster": [11, 12]
+      name: "Boston Bruins",
+      venue: "TD Garden",
+      venue: "BOS",
+      roster: [{
+        name: "David Pastrnak",
+        country: "CZE",
+        points: 70
+      },
+      {
+        name: "Patrice Bergeron",
+        country: "CAN",
+        points: 41
+      }]
     },
     {
-      "id": 7,
-      "name": "Buffalo Sabres",
-      "venue": "KeyBank Center",
-      "abbreviation": "BUF",
-      "roster": [13, 14]
+      name: "Buffalo Sabres",
+      venue: "KeyBank Center",
+      abbreviation: "BUF",
+      roster: [{
+        name: "Jack Eichel",
+        country: "USA",
+        points: 62
+      },
+      {
+        name: "Rasmus Dahlin",
+        country: "SWE",
+        points: 28
+      }]
     },
     {
-      "id": 8,
-      "name": "Montréal Canadiens",
-      "venue": "Bell Centre",
-      "abbreviation": "MTL",
-      "roster": [15, 16]
+      name: "Montréal Canadiens",
+      venue: "Bell Centre",
+      abbreviation: "MTL",
+      roster: [{
+        name: "Shea Weber",
+        country: "CAN",
+        points: 33
+      },
+      {
+        name: "Tomas Tatar",
+        country: "CZE",
+        points: 43
+      }]
     },
     {
-      "id": 10,
-      "name": "Toronto Maple Leafs",
-      "venue": "Scotiabank Arena",
-      "abbreviation": "TOR",
-      "roster": [17, 18]
+      name: "Toronto Maple Leafs",
+      venue: "Scotiabank Arena",
+      abbreviation: "TOR",
+      roster: [{
+        name: "Mitch Marner",
+        country: "CAN",
+        points: 47
+      },
+      {
+        name: "Auston Matthews",
+        country: "USA",
+        points: 57
+      }]
     },
     {
-      "id": 12,
-      "name": "Carolina Hurricanes",
-      "venue": "PNC Arena",
-      "abbreviation": "CAR",
-      "roster": [19, 20]
+      name: "Carolina Hurricanes",
+      venue: "PNC Arena",
+      abbreviation: "CAR",
+      roster: [{
+        name: "Sebastian Aho",
+        country: "FIN",
+        points: 42
+      },
+      {
+        name: "Jacob Slavin",
+        country: "USA",
+        points: 23
+      }]
     },
     {
-      "id": 13,
-      "name": "Florida Panthers",
-      "venue": "BB&T Center",
-      "abbreviation": "FLA",
-      "roster": [21, 22]
+      name: "Florida Panthers",
+      venue: "BB&T Center",
+      abbreviation: "FLA",
+      roster: [{
+        name: "Alexander Barkov",
+        country: "FIN",
+        points: 54
+      },
+      {
+        name: "Mike Hoffman",
+        country: "CAN",
+        points: 40
+      }]
     },
     {
-      "id": 14,
-      "name": "Tampa Bay Lightning",
-      "venue": "AMALIE Arena",
-      "abbreviation": "TBL",
-      "roster": [23, 24]
+      name: "Tampa Bay Lightning",
+      venue: "AMALIE Arena",
+      abbreviation: "TBL",
+      roster: [{
+        name: "Nikita Kucherov",
+        country: "RUS",
+        points: 54
+      },
+      {
+        name: "Steven Stamkos",
+        country: "CAN",
+        points: 48
+      }]
     },
     {
-      "id": 15,
-      "name": "Washington Capitals",
-      "venue": "Capital One Arena",
-      "abbreviation": "WSH",
-      "roster": [25, 26]
+      name: "Washington Capitals",
+      venue: "Capital One Arena",
+      abbreviation: "WSH",
+      roster: [{
+        name: "Alex Ovechkin",
+        country: "RUS",
+        points: 50
+      },
+      {
+        name: "John Carlson",
+        country: "USA",
+        points: 60
+      }]
     },
     {
-      "id": 16,
-      "name": "Chicago Blackhawks",
-      "venue": "United Center",
-      "abbreviation": "CHI",
-      "roster": [27, 28]
+      name: "Chicago Blackhawks",
+      venue: "United Center",
+      abbreviation: "CHI",
+      roster: [{
+        name: "Patrick Kane",
+        country: "USA",
+        points: 63
+      },
+      {
+        name: "Johnathan Toews",
+        country: "CAN",
+        points: 44
+      }]
     },
     {
-      "id": 17,
-      "name": "Detroit Red Wings",
-      "venue": "Little Caesars Arena",
-      "abbreviation": "DET",
-      "roster": [29, 30]
+      name: "Detroit Red Wings",
+      venue: "Little Caesars Arena",
+      abbreviation: "DET",
+      roster: [{
+        name: "Dylan Larkin",
+        country: "USA",
+        points: 36
+      },
+      {
+        name: "Tyler Bertuzzi",
+        country: "CAN",
+        points: 36
+      }]
     },
     {
-      "id": 18,
-      "name": "Nashville Predators",
-      "venue": "Bridgestone Arena",
-      "abbreviation": "NSH",
-      "roster": [31, 32]
+      name: "Nashville Predators",
+      venue: "Bridgestone Arena",
+      abbreviation: "NSH",
+      roster: [{
+        name: "Roman Josi",
+        country: "SWI",
+        points: 48
+      },
+      {
+        name: "Victor Arvidsson",
+        country: "SWE",
+        points: 20
+      }]
     },
     {
-      "id": 19,
-      "name": "St. Louis Blues",
-      "venue": "Enterprise Center",
-      "abbreviation": "STL",
-      "roster": [33, 34]
+      name: "St. Louis Blues",
+      venue: "Enterprise Center",
+      abbreviation: "STL",
+      roster: [{
+        name: "Ryan O\'Reilly",
+        country: "CAN",
+        points: 43
+      },
+      {
+        name: "Vladimir Tarasenko",
+        country: "RUS",
+        points: 10
+      }]
     },
     {
-      "id": 20,
-      "name": "Calgary Flames",
-      "venue": "Scotiabank Saddledome",
-      "abbreviation": "CGY",
-      "roster": [35, 36]
+      name: "Calgary Flames",
+      venue: "Scotiabank Saddledome",
+      abbreviation: "CGY",
+      roster: [{
+        name: "Johnny Gaudreau",
+        country: "USA",
+        points: 38
+      },
+      {
+        name: "Sean Monahan",
+        country: "CAN",
+        points: 36
+      }]
     },
     {
-      "id": 21,
-      "name": "Colorado Avalanche",
-      "venue": "Pepsi Center",
-      "abbreviation": "COL",
-      "roster": [37, 38]
+      name: "Colorado Avalanche",
+      venue: "Pepsi Center",
+      abbreviation: "COL",
+      roster: [{
+        name: "Nathan MacKinnon",
+        country: "CAN",
+        points: 72
+      },
+      {
+        name: "Cale Makar",
+        country: "CAN",
+        points: 37
+      }]
     },
     {
-      "id": 22,
-      "name": "Edmonton Oilers",
-      "venue": "Rogers Place",
-      "abbreviation": "EDM",
-      "roster": [39, 40]
+      name: "Edmonton Oilers",
+      venue: "Rogers Place",
+      abbreviation: "EDM",
+      roster: [{
+        name: "Connor McDavid",
+        country: "CAN",
+        points: 76
+      },
+      {
+        name: "Leon Draisaitl",
+        country: "GER",
+        points: 75
+      }]
     },
     {
-      "id": 23,
-      "name": "Vancouver Canucks",
-      "venue": "Rogers Arena",
-      "abbreviation": "VAN",
-      "roster": [41, 42]
+      name: "Vancouver Canucks",
+      venue: "Rogers Arena",
+      abbreviation: "VAN",
+      roster: [{
+        name: "Elias Pettersson",
+        country: "SWE",
+        points: 51
+      },
+      {
+        name: "Brock Boeser",
+        country: "USA",
+        points: 43
+      }]
     },
     {
-      "id": 24,
-      "name": "Anaheim Ducks",
-      "venue": "Honda Center",
-      "abbreviation": "ANA",
-      "roster": [43, 44]
+      name: "Anaheim Ducks",
+      venue: "Honda Center",
+      abbreviation: "ANA",
+      roster: [{
+        name: "Ryan Getzlaf",
+        country: "CAN",
+        points: 33
+      },
+      {
+        name: "Sam Steel",
+        country: "CAN",
+        points: 15
+      }]
     },
     {
-      "id": 25,
-      "name": "Dallas Stars",
-      "venue": "American Airlines Center",
-      "abbreviation": "DAL",
-      "roster": [45, 46]
+      name: "Dallas Stars",
+      venue: "American Airlines Center",
+      abbreviation: "DAL",
+      roster: [{
+        name: "Jamie Benn",
+        country: "CAN",
+        points: 23
+      },
+      {
+        name: "Tyler Seguin",
+        country: "CAN",
+        points: 36
+      }]
     },
     {
-      "id": 26,
-      "name": "Los Angeles Kings",
-      "venue": "STAPLES Center",
-      "abbreviation": "LAK",
-      "roster": [47, 48]
+      name: "Los Angeles Kings",
+      venue: "STAPLES Center",
+      abbreviation: "LAK",
+      roster: [{
+        name: "Anze Kopitar",
+        country: "SVN",
+        points: 43
+      },
+      {
+        name: "Drew Doughty",
+        country: "CAN",
+        points: 27
+      }]
     },
     {
-      "id": 28,
-      "name": "San Jose Sharks",
-      "venue": "SAP Center at San Jose",
-      "abbreviation": "SJS",
-      "roster": [49, 50]
+      name: "San Jose Sharks",
+      venue: "SAP Center at San Jose",
+      abbreviation: "SJS",
+      roster: [{
+        name: "Joe Thornton",
+        country: "CAN",
+        points: 19
+      },
+      {
+        name: "Tomas Hertl",
+        country: "CZE",
+        points: 35
+      }]
     },
     {
-      "id": 29,
-      "name": "Columbus Blue Jackets",
-      "venue": "Nationwide Arena",
-      "abbreviation": "CBJ",
-      "roster": [51, 52]
+      name: "Columbus Blue Jackets",
+      venue: "Nationwide Arena",
+      abbreviation: "CBJ",
+      roster: [{
+        name: "Cam Atkinson",
+        country: "USA",
+        points: 26
+      },
+      {
+        name: "Seth Jones",
+        country: "USA",
+        points: 28
+      }]
     },
     {
-      "id": 30,
-      "name": "Minnesota Wild",
-      "venue": "Xcel Energy Center",
-      "abbreviation": "MIN",
-      "roster": [53, 54]
+      name: "Minnesota Wild",
+      venue: "Xcel Energy Center",
+      abbreviation: "MIN",
+      roster: [{
+        name: "Eric Staal",
+        country: "CAN",
+        points: 38
+      },
+      {
+        name: "Matt Dumba",
+        country: "CAN",
+        points: 16
+      }]
     },
     {
-      "id": 52,
-      "name": "Winnipeg Jets",
-      "venue": "Bell MTS Place",
-      "abbreviation": "WPG",
-      "roster": [55, 56]
+      name: "Winnipeg Jets",
+      venue: "Bell MTS Place",
+      abbreviation: "WPG",
+      roster: [{
+        name: "Blake Wheeler",
+        country: "USA",
+        points: 43
+      },
+      {
+        name: "Patrik Laine",
+        country: "FIN",
+        points: 45
+      }]
     },
     {
-      "id": 53,
-      "name": "Arizona Coyotes",
-      "venue": "Gila River Arena",
-      "abbreviation": "ARI",
-      "roster": [57, 58]
+      name: "Arizona Coyotes",
+      venue: "Gila River Arena",
+      abbreviation: "ARI",
+      roster: [{
+        name: "Oliver Ekman-Larsson",
+        country: "SWE",
+        points: 22
+      },
+      {
+        name: "Taylor Hall",
+        country: "CAN",
+        points: 40
+      }]
     },
     {
-      "id": 54,
-      "name": "Vegas Golden Knights",
-      "venue": "T-Mobile Arena",
-      "abbreviation": "VGK",
-      "roster": [59, 60]
+      name: "Vegas Golden Knights",
+      venue: "T-Mobile Arena",
+      abbreviation: "VGK",
+      roster: [{
+        name: "William Karlsson",
+        country: "SWE",
+        points: 34
+      },
+      {
+        name: "Ryan Reaves",
+        country: "CAN",
+        points: 9
+      }]
     },
     {
-      "id": 55,
-      "name": "Ottawa Senators",
-      "venue": "Canadian Tire Centre",
-      "abbreviation": "OTT",
-      "roster": [61, 62]
+      name: "Ottawa Senators",
+      venue: "Canadian Tire Centre",
+      abbreviation: "OTT",
+      roster: [{
+        name: "Brady Tkachuk",
+        country: "USA",
+        points: 27
+      },
+      {
+        name: "Thomas Chabot",
+        country: "CAN",
+        points: 27
+      }]
     }
   ];
