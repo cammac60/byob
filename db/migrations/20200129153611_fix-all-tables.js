@@ -1,4 +1,3 @@
-
 exports.up = knex => {
   return knex.schema
     .createTable('teams', table => {
@@ -13,11 +12,11 @@ exports.up = knex => {
       table.string('name');
       table.string('country');
       table.integer('points').unsigned();
-      table.foreign('id').references('teams.id');
+      table.integer('team_id').unsigned();
+      table.foreign('team_id').references('teams.id');
       table.timestamps(true, true);
     })
 };
-
 exports.down = knex => {
   return knex.schema
   .dropTable('teams')
