@@ -1,4 +1,4 @@
-const teams = [
+const nhlTeams = [
     {
       name: "New Jersey Devils",
       venue: "Prudential Center",
@@ -76,8 +76,8 @@ const teams = [
     },
     {
       name: "Boston Bruins",
+      abbreviation: "BOS",
       venue: "TD Garden",
-      venue: "BOS",
       roster: [{
         name: "David Pastrnak",
         country: "CZE",
@@ -465,3 +465,5 @@ const teams = [
       }]
     }
   ];
+
+module.exports = nhlTeams;
