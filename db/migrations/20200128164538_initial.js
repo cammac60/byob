@@ -13,7 +13,7 @@ exports.up = knex => {
       table.string('name');
       table.string('country');
       table.integer('points').unsigned();
-      table.foreign('team_id').references('teams.id');
+      table.foreign('id').references('teams.id');
       table.timestamps(true, true);
     })
 };
