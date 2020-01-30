@@ -20,6 +20,21 @@ app.get('/api/v1/teams', async (req, res) => {
     }
 });
 
+app.get('/api/v1/teams/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const teams = await database('teams').select();
+    const selectedTeam = teams.filter(team => team.id === parseInt(id));
+    if (selectedTeam.length) {
+      res.status(200).json(selectedTeam);
+    } else {
+      res.status(404).send(`Error: No team could be found with an id of ${id}.`);
+    }
+  } catch(error) {
+      res.status(500).json({ error });
+    }
+});
+
 app.get('/api/v1/players', async (req, res) => {
   try {
     const players = await database('players').select();
