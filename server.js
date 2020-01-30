@@ -79,7 +79,7 @@ app.get('/api/v1/players/:id/team', async (req, res) => {
   try {
     const teams = await database('teams').select();
     const players = await database('players').select();
-    const selectedPlayerId = players.find(player => player.team_id === id).team_id;
+    const selectedPlayerId = players.find(player => player.id === parseInt(id)).team_id;
     const selectedTeam = teams.filter(team => team.id === selectedPlayerId);
     if (selectedTeam.length) {
       res.status(200).json(...selectedTeam);
@@ -92,5 +92,5 @@ app.get('/api/v1/players/:id/team', async (req, res) => {
 });
 
 app.listen(app.get('port'), () => {
-  console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`);
+  console.log(`BYOB is running on http://localhost:${app.get('port')}.`);
 });
