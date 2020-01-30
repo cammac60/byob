@@ -74,6 +74,23 @@ app.get('/api/v1/players/:id', async (req, res) => {
     }
 });
 
+app.get('/api/v1/players/:id/team', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const teams = await database('teams').select();
+    const players = await database('players').select();
+    const selectedPlayerId = players.find(player => player.team_id === id).team_id;
+    const selectedTeam = teams.filter(team => team.id === selectedPlayerId);
+    if (selectedTeam.length) {
+      res.status(200).json(...selectedTeam);
+    } else {
+        res.status(404).send(`Error: No team could be found with an id of ${id}.`);
+    }
+  } catch(error) {
+      res.status(500).json({ error });
+    }
+});
+
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`);
 });
