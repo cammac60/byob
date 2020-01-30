@@ -35,15 +35,15 @@ app.get('/api/v1/teams/:id', async (req, res) => {
     }
 });
 
-app.get('/api/v1/players/:id', async (req, res) => {
+app.get('/api/v1/teams/:id/roster', async (req, res) => {
   const { id } = req.params;
   try {
     const players = await database('players').select();
-    const selectedPlayer = players.filter(player => player.id === parseInt(id));
-    if (selectedPlayer.length) {
-      res.status(200).json(...selectedPlayer);
+    const selectedPlayers = players.filter(player => player.team_id === parseInt(id));
+    if (selectedPlayers.length) {
+      res.status(200).json(selectedPlayers);
     } else {
-      res.status(404).send(`Error: No player could be found with an id of ${id}.`);
+      res.status(404).send(`Error: No players could be found with on a team with an id of ${id}.`);
     }
   } catch(error) {
       res.status(500).json({ error });
@@ -54,6 +54,21 @@ app.get('/api/v1/players', async (req, res) => {
   try {
     const players = await database('players').select();
     res.status(200).json(players);
+  } catch(error) {
+      res.status(500).json({ error });
+    }
+});
+
+app.get('/api/v1/players/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const players = await database('players').select();
+    const selectedPlayer = players.filter(player => player.id === parseInt(id));
+    if (selectedPlayer.length) {
+      res.status(200).json(...selectedPlayer);
+    } else {
+      res.status(404).send(`Error: No player could be found with an id of ${id}.`);
+    }
   } catch(error) {
       res.status(500).json({ error });
     }
