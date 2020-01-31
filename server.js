@@ -144,6 +144,25 @@ app.delete('/api/v1/players/:id', async (req, res) => {
   }
 });
 
+app.delete('/api/v1/teams/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const teams = await database('teams').select();
+    const removedTeam = teams.find(team => team.id === parseInt(id));
+    const updatedTeams = teams.filter(team => team.id !== parseInt(id));
+    if (!removedTeam) {
+      return res
+        .status(404)
+        .send({error: `No team was found with an id of ${id}.`});
+    } else {
+      await database('teams').where('id', id).del();
+      res.status(200).json(updatedTeams);
+    }
+  } catch(error) {
+    res.status(500).json({ error });
+  }
+});
+
 app.listen(app.get('port'), () => {
   console.log(`BYOB is running on http://localhost:${app.get('port')}.`);
 });
