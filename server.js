@@ -91,6 +91,40 @@ app.get('/api/v1/players/:id/team', async (req, res) => {
     }
 });
 
+app.post('/api/v1/teams', async (req, res) => {
+  const team = req.body;
+  for (let requiredParameter of ['name', 'venue', 'abbreviation']) {
+    if (!team[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: { name: <String>, venue: <String>, abbreviation: <String> }. You're missing a "${requiredParameter}" property.` });
+    }
+  }
+  try {
+    const id = await database('teams').insert(team, 'id');
+    res.status(201).json({ team, id })
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+app.post('/api/v1/players', async (req, res) => {
+  const player = req.body;
+  for (let requiredParameter of ['name', 'country', 'points', 'team_id']) {
+    if (!player[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `Expected format: { name: <String>, country: <String>, points: <Int>, team_id: <Int> }. You're missing a "${requiredParameter}" property.` });
+    }
+  }
+  try {
+    const id = await database('players').insert(player, 'id');
+    res.status(201).json({ player, id })
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
 app.listen(app.get('port'), () => {
   console.log(`BYOB is running on http://localhost:${app.get('port')}.`);
 });
