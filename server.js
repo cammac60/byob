@@ -136,6 +136,7 @@ app.delete('/api/v1/players/:id', async (req, res) => {
         .status(404)
         .send({error: `No player was found with an id of ${id}.`});
     } else {
+      await database('players').where('id', id).del();
       res.status(200).json(updatedPlayers);
     }
   } catch(error) {
