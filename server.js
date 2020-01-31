@@ -95,7 +95,7 @@ app.post('/api/v1/teams', async (req, res) => {
   const team = req.body;
   for (let requiredParameter of ['name', 'venue', 'abbreviation']) {
     if (!team[requiredParameter]) {
-      return response
+      return res
         .status(422)
         .send({ error: `Expected format: { name: <String>, venue: <String>, abbreviation: <String> }. You're missing a "${requiredParameter}" property.` });
     }
@@ -112,7 +112,7 @@ app.post('/api/v1/players', async (req, res) => {
   const player = req.body;
   for (let requiredParameter of ['name', 'country', 'points', 'team_id']) {
     if (!player[requiredParameter]) {
-      return response
+      return res
         .status(422)
         .send({ error: `Expected format: { name: <String>, country: <String>, points: <Int>, team_id: <Int> }. You're missing a "${requiredParameter}" property.` });
     }
@@ -121,6 +121,24 @@ app.post('/api/v1/players', async (req, res) => {
     const id = await database('players').insert(player, 'id');
     res.status(201).json({ player, id })
   } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+app.delete('/api/v1/players/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const players = await database('players').select();
+    const removedPlayer = players.find(player => player.id === parseInt(id));
+    const updatedPlayers = players.filter(player => player.id !== parseInt(id));
+    if (!removedPlayer) {
+      return res
+        .status(404)
+        .send({error: `No player was found with an id of ${id}.`});
+    } else {
+      res.status(200).json(updatedPlayers);
+    }
+  } catch(error) {
     res.status(500).json({ error });
   }
 });
