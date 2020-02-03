@@ -22,6 +22,7 @@ const createPlayer = (knex, player) => {
   return knex('players').insert(player);
 };
 
+
 exports.seed = async knex => {
   try {
     await knex('teams').del()
